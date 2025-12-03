@@ -148,3 +148,5 @@ SELECT * FROM `comentarios`;
 
 
 -- Fin de archivo bd.sql
+
+sel

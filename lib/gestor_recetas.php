@@ -84,7 +84,7 @@ function obtener_planes_asignados($id_medico){
 
 function obtener_clientes(){
     global $conn;
-    $sql = "SELECT id_usr, nom_usr FROM medico WHERE tip_usu != 1"; 
+    $sql = "SELECT id_cli, nom_usr FROM medico WHERE tip_usu != 1"; 
     $result = mysqli_query($conn, $sql);
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
