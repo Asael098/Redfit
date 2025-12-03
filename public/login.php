@@ -39,7 +39,6 @@ $mensaje=isset($_GET['error']) ? $_GET['error'] : '';
                 <input class="input" type="password" placeholder="Contraseña" id="pass" name="pass" required>
                 <button class="btn-enviar" type="submit">Ingresar</button>
             </form>
-            <a href="registro.php" class="vinculo">¿Todavia no tienes una cuenta?</a>
 
         </div>
     </section>
