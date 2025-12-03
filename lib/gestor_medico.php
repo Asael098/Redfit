@@ -49,14 +49,14 @@ function agregar_producto($nom_usr, $mail, $pass, $dir_usr, $tip_usu, $numero, $
     }else{
         return[
         'estatus'=>'error',
-        'mensaje'=>'Error al insertar el producto. no hubo cambios'
+        'mensaje'=>'Error al insertar el medico. no hubo cambios'
         ];
 
     }
 
 }
 
-function eliminar_producto($id_usr){
+function eliminar_medico($id_usr){
     global $conn;
     $sql="DELETE FROM medico WHERE id_usr=?";
     $delete_preparado=mysqli_prepare($conn, $sql);
@@ -78,20 +78,20 @@ function eliminar_producto($id_usr){
     if($query_ok && $rows_ok > 0){
         return [
             'estatus'=>'msg',
-            'mensaje'=>'producto borrado correctamente'
+            'mensaje'=>'medico borrado correctamente'
         ];
 
     }else{
         return[
         'estatus'=>'error',
-        'mensaje'=>'Error al borrar el producto. no hubo cambios'
+        'mensaje'=>'Error al borrar el medico. no hubo cambios'
         ];
 
     }
 
 }
 
-function modificar_producto($nom_usr, $numero, $img, $estatus, $direccion, $id_usr){
+function modificar_medico($nom_usr, $numero, $img, $estatus, $direccion, $id_usr){
     global $conn;
     $sql="UPDATE medico SET nom_usr=?, numero=?, img=?, estatus=?, dir_usr=? WHERE id_usr=?";
     $insert_preparado=mysqli_prepare($conn, $sql);
@@ -113,13 +113,13 @@ function modificar_producto($nom_usr, $numero, $img, $estatus, $direccion, $id_u
     if($query_ok && $rows_ok > 0){
         return [
             'estatus'=>'msg',
-            'mensaje'=>'producto modificado correctamente'
+            'mensaje'=>'medico modificado correctamente'
         ];
 
     }else{
         return[
         'estatus'=>'error',
-        'mensaje'=>'Error al insertar el producto. no hubo cambios'
+        'mensaje'=>'Error al insertar el medico. no hubo cambios'
         ];
 
     }
@@ -162,11 +162,11 @@ function modificar_producto($nom_usr, $numero, $img, $estatus, $direccion, $id_u
                         $img=trim($_POST['img']);
                         $estatus=(int)$_POST['estatus'];
                         $direccion=trim($_POST['dir']);
-                        $resultado=modificar_producto($nom_usr, $numero, $img, $estatus, $direccion, $id_usr);
+                        $resultado=modificar_medico($nom_usr, $numero, $img, $estatus, $direccion, $id_usr);
                         echo"
                     <script>
                     alert('".$resultado['mensaje']."');
-                    window.location.href='../public/admin/catalogo.php';
+                    window.location.href='../public/admin/medicos.php';
                     </script>
                     ";  
 
@@ -174,7 +174,7 @@ function modificar_producto($nom_usr, $numero, $img, $estatus, $direccion, $id_u
                         echo"
                     <script>
                     alert('Algun dato  no proporcionado, intente de nuevo ".$id_prod['id_prod'], $nom_prod['nom_prod'], $desc['desc'], $prec['prec'], $stock['stock'], $estatus['stock']."');
-                    window.location.href='../public/admin/editar_productos.php';
+                    window.location.href='../public/admin/editar_medico.php';
                     </script>
                     ";
                         
@@ -184,18 +184,18 @@ function modificar_producto($nom_usr, $numero, $img, $estatus, $direccion, $id_u
                 case 'eliminar':
                     if(isset($_POST['id_usr'])){
                         $id_usr=(int)$_POST['id_usr'];
-                        $resultado=eliminar_producto($id_usr);
+                        $resultado=eliminar_medico($id_usr);
                     echo"
                     <script>
                     alert('".$resultado['mensaje']."');
-                    window.location.href='../public/admin/catalogo.php';
+                    window.location.href='../public/admin/medicos.php';
                     </script>
                     ";   
                         
 
                     }
                     else{
-                        header('Location: ../public/admin/catalogo.php?error=' .urlencode('ID del producto no proporcionado, intente de nuevo'));
+                        header('Location: ../public/admin/catalogo.php?error=' .urlencode('ID del medico no proporcionado, intente de nuevo'));
                     }
                         exit;
                     break;
@@ -207,7 +207,7 @@ function modificar_producto($nom_usr, $numero, $img, $estatus, $direccion, $id_u
             echo"
             <script>
             alert('Accion no detectada intente de nuevo');
-            window.location.href='../public/admin/catalogo.php';
+            window.location.href='../public/admin/medicos.php';
             </script>
             ";
             exit;
