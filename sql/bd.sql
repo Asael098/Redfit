@@ -135,6 +135,8 @@ INSERT INTO comentarios (comentario, fecha, calificacion, id_cli) VALUES
 ('Buenos precios, pero podrían mejorar la app.', '2023-10-15 20:00:00', 4, 4),
 ('El objetivo que me asignaron es muy difícil, necesito ajuste.', '2023-10-18 07:45:00', 3, 1);
 
+DELETE FROM `clientes` WHERE id_usr=1;
+
 SELECT * FROM `clientes`;
 
 SELECT * FROM `objetivos`;

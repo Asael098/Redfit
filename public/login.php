@@ -15,7 +15,6 @@ $mensaje=isset($_GET['error']) ? $_GET['error'] : '';
     <meta charset="UTF-8">
     <title>Login - Gestor Web</title>
     <link href="assets/css/login.css" rel="stylesheet">
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
 </head>
 
 <body class="body">
